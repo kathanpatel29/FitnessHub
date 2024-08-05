@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Passion_Project.Models; // Assuming this is where your DTOs are defined
+using FitnessHub.Models; // Assuming this is where your DTOs are defined
 
-namespace Passion_Project.Models.ViewModels
+namespace FitnessHub.Models.ViewModels
 {
     public class AddBookingViewModel
     {

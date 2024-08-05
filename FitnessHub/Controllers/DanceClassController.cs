@@ -1,4 +1,4 @@
-﻿using Passion_Project.Models;
+﻿using FitnessHub.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 {
     public class DanceClassController : Controller
     {

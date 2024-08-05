@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Passion_Project.Models;
+using FitnessHub.Models;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 
 {
     [Authorize]

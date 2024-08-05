@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Passion_Project.Models
+namespace FitnessHub.Models
 {
     public class User
     {

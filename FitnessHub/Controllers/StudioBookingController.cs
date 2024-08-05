@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Passion_Project.Models;
-using Passion_Project.Models.ViewModels;
+using FitnessHub.Models;
+using FitnessHub.Models.ViewModels;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 {
     public class StudioBookingController : Controller
     {

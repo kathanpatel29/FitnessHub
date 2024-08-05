@@ -1,9 +1,9 @@
-﻿using Passion_Project.Models;
+﻿using FitnessHub.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 {
     public class StudioDataController : ApiController
     {

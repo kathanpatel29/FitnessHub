@@ -1,4 +1,4 @@
-﻿namespace Passion_Project.Migrations
+﻿namespace FitnessHub.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

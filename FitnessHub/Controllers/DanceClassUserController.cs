@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Passion_Project.Models;
+using FitnessHub.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Mvc;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 {
     public class DanceClassUserController : Controller
     {

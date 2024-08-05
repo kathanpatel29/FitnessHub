@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Passion_Project</RootNamespace>
-    <AssemblyName>Passion_Project</AssemblyName>
+    <RootNamespace>FitnessHub</RootNamespace>
+    <AssemblyName>FitnessHub</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -348,7 +348,7 @@
     <Content Include="image\1.jpg" />
     <Content Include="image\2.jpg" />
     <Content Include="image\3.jpg" />
-    <Content Include="obj\Debug\Passion_Project.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\FitnessHub.csproj.FileListAbsolute.txt" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -357,8 +357,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="obj\Debug\build.force" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\Passion_Project.csproj.AssemblyReference.cache" />
-    <Content Include="obj\Debug\Passion_Project.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\FitnessHub.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\FitnessHub.csproj.CoreCompileInputs.cache" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

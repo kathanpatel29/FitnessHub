@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Passion_Project.Startup))]
-namespace Passion_Project
+[assembly: OwinStartupAttribute(typeof(FitnessHub.Startup))]
+namespace FitnessHub
 {
     public partial class Startup
     {

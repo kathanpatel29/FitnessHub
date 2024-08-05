@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Passion_Project.Models;
+using FitnessHub.Models;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 {
     public class BookingDataController : ApiController
     {

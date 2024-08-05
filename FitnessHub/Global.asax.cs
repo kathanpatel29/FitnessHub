@@ -9,7 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace Passion_Project
+namespace FitnessHub
 {
     public class MvcApplication : System.Web.HttpApplication
     {

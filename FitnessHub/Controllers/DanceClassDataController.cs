@@ -1,4 +1,4 @@
-﻿using Passion_Project.Models;
+﻿using FitnessHub.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 
-namespace Passion_Project.Controllers
+namespace FitnessHub.Controllers
 {
     public class DanceClassDataController : ApiController
     {

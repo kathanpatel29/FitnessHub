@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Passion_Project.Models
+namespace FitnessHub.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
