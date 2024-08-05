@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Passion_Project.Models;
+using FitnessHub.Models;
 
-namespace Passion_Project
+namespace FitnessHub
 {
     public partial class Startup
     {

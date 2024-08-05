@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Passion_Project
+namespace FitnessHub
 {
     public class BundleConfig
     {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Passion_Project
+namespace FitnessHub
 {
     public class RouteConfig
     {

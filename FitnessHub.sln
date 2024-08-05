@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessHub", "FitnessHub\FitnessHub.csproj", "{8B46ECC5-6B17-4D79-A767-E10951BE4C66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessHub", "FitnessHub\FitnessHub.csproj", "{C9D9CC17-24C2-4696-8CF1-B8E617F66904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8B46ECC5-6B17-4D79-A767-E10951BE4C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B46ECC5-6B17-4D79-A767-E10951BE4C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B46ECC5-6B17-4D79-A767-E10951BE4C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B46ECC5-6B17-4D79-A767-E10951BE4C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D9CC17-24C2-4696-8CF1-B8E617F66904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D9CC17-24C2-4696-8CF1-B8E617F66904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D9CC17-24C2-4696-8CF1-B8E617F66904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D9CC17-24C2-4696-8CF1-B8E617F66904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FE320076-408F-4BE3-823B-68AD0B66468F}
+		SolutionGuid = {4E592609-E493-475A-8D68-5FCEBBB0B37C}
 	EndGlobalSection
 EndGlobal

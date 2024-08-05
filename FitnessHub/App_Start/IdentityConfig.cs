@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Passion_Project.Models;
+using FitnessHub.Models;
 
-namespace Passion_Project
+namespace FitnessHub
 {
     public class EmailService : IIdentityMessageService
     {

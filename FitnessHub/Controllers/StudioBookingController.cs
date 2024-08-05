@@ -20,7 +20,7 @@ namespace FitnessHub.Controllers
             // Initialize HttpClient with base URL for API requests
             client = new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:44301/api/") // Adjust base URL to match your API address
+                BaseAddress = new Uri("https://localhost:44351/api/") // Adjust base URL to match your API address
             };
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));

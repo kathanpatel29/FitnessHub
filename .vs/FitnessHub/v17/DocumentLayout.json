@@ -1,0 +1,148 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|FitnessHub||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/aspnet_FitnessHub_20240805043938/True/SqlTable/dbo.Studios.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|d:\\pg canada\\sem-2\\http-5226\\fitnesshub\\fitnesshub\\web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|solutionrelative:fitnesshub\\web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\fitnesshub\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|solutionrelative:fitnesshub\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\fitnesshub\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|solutionrelative:fitnesshub\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\fitnesshub\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|solutionrelative:fitnesshub\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\fitnesshub\\obj\\debug\\.netframework,version=v4.7.2.assemblyattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|solutionrelative:fitnesshub\\obj\\debug\\.netframework,version=v4.7.2.assemblyattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D9CC17-24C2-4696-8CF1-B8E617F66904}|FitnessHub\\FitnessHub.csproj|d:\\pg canada\\sem-2\\http-5226\\fitnesshub\\fitnesshub\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|909d16b3-c8e8-43d1-a2b8-26ea0d4b6b57"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FitnessHub",
+              "DocumentMoniker": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\FitnessHub.csproj",
+              "RelativeDocumentMoniker": "FitnessHub\\FitnessHub.csproj",
+              "ToolTip": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\FitnessHub.csproj",
+              "RelativeToolTip": "FitnessHub\\FitnessHub.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-08-05T21:22:01.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dbo.Studios [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/aspnet_FitnessHub_20240805043938/True/SqlTable/dbo.Studios.sql",
+              "ToolTip": "dbo.Studios [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-08-05T21:21:38.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Web.Release.config",
+              "DocumentMoniker": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\Web.Release.config",
+              "RelativeDocumentMoniker": "FitnessHub\\Web.Release.config",
+              "ToolTip": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\Web.Release.config",
+              "RelativeToolTip": "FitnessHub\\Web.Release.config",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-05T20:37:36.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Web.Debug.config",
+              "DocumentMoniker": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\Web.Debug.config",
+              "RelativeDocumentMoniker": "FitnessHub\\Web.Debug.config",
+              "ToolTip": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\Web.Debug.config",
+              "RelativeToolTip": "FitnessHub\\Web.Debug.config",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-05T20:37:32.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Startup.Auth.cs",
+              "DocumentMoniker": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\App_Start\\Startup.Auth.cs",
+              "RelativeDocumentMoniker": "FitnessHub\\App_Start\\Startup.Auth.cs",
+              "ToolTip": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\App_Start\\Startup.Auth.cs",
+              "RelativeToolTip": "FitnessHub\\App_Start\\Startup.Auth.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAcwA4AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T20:37:21.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\Views\\Web.config",
+              "RelativeDocumentMoniker": "FitnessHub\\Views\\Web.config",
+              "ToolTip": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\Views\\Web.config",
+              "RelativeToolTip": "FitnessHub\\Views\\Web.config",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-05T20:37:12.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": ".NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+              "DocumentMoniker": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\obj\\Debug\\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+              "RelativeDocumentMoniker": "FitnessHub\\obj\\Debug\\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+              "ToolTip": "D:\\pg canada\\SEM-2\\HTTP-5226\\FitnessHub\\FitnessHub\\obj\\Debug\\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+              "RelativeToolTip": "FitnessHub\\obj\\Debug\\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T20:35:42.772Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
