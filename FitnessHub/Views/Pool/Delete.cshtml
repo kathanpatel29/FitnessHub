@@ -1,0 +1,27 @@
+﻿@model FitnessHub.Models.Pool
+
+@{
+    ViewBag.Title = "Delete Pool";
+}
+
+<h2>Delete Pool</h2>
+
+<h3>Are you sure you want to delete this pool?</h3>
+
+<div>
+    <h4>Pool Details</h4>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>@Model.Name</dd>
+        <dt>Location</dt>
+        <dd>@Model.Location</dd>
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Pool", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.PoolID" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default" })
+    }
+</div>

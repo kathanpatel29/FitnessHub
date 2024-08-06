@@ -5,29 +5,24 @@ using System.Linq;
 using System.Web;
 
 namespace FitnessHub.Models
+{ 
+public class Studio
 {
-    public class Studio
-    {
-        // Key - Represents Primary Key Of table
-        //
-        // ID is primary key for Studio Datatable
-        [Key]
-        public int StudioID { get; set; }
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public int Capacity { get; set; }
-        public string Facilities { get; set; }
-    }
+    [Key]
+    public int StudioID { get; set; }
+    public string Name { get; set; }
+    public string Location { get; set; }
+    public string Description { get; set; }
+    public string ImageUrl { get; set; }
+    public virtual ICollection<DanceClass> DanceClasses { get; set; }
+}
 
-    public class StudioDto
-    {
-        public int StudioID { get; set; }
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public int Capacity { get; set; }
-        public string Facilities { get; set; }
-        // Navigation property for classes associated with this studio
-        
-
+public class StudioDto
+{
+    public int StudioID { get; set; }
+    public string Name { get; set; }
+    public string Location { get; set; }
+    public string Description { get; set; }
+    public string ImageUrl { get; set; }
     }
 }

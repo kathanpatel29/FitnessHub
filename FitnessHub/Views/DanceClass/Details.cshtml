@@ -1,4 +1,4 @@
-﻿@model FitnessHub.Models.ClassDto
+﻿@model FitnessHub.Models.DanceClassDto
 
 @{
     ViewBag.Title = "Class Details";
@@ -78,7 +78,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col">
-                <h2 class="text-muted">Class Details: @Model.ClassName</h2>
+                <h2 class="text-muted">Class Details: @Model.Name</h2>
             </div>
             <div class="col-auto">
                 <a href="/DanceClass/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Classes</a>
@@ -89,11 +89,12 @@
             <div class="card-body">
                 <h5 class="card-title text-muted">Class Information</h5>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Studio:</strong> @Model.Name</li>
-                    <li class="list-group-item"><strong>Class:</strong> @Model.ClassName</li>
-                    <li class="list-group-item"><strong>Schedule:</strong> @Model.Schedule</li>
-                    <li class="list-group-item"><strong>Duration:</strong> @Model.Duration</li>
-                    <li class="list-group-item"><strong>Price:</strong> $ @Model.Price /per Duration</li>
+                    <li class="list-group-item"><strong>Studio:</strong> @Model.StudioID</li>
+                    <li class="list-group-item"><strong>Class Name:</strong> @Model.Name</li>
+                    <li class="list-group-item"><strong>Instructor:</strong> @Model.Instructor</li>
+                    <li class="list-group-item"><strong>Schedule:</strong> @Model.Schedule.ToString("dddd, dd MMMM yyyy HH:mm")</li>
+                    <li class="list-group-item"><strong>Duration:</strong> @Model.Duration minutes</li>
+                    <li class="list-group-item"><strong>Price:</strong> $@Model.Price /per Duration</li>
                     <li class="list-group-item"><strong>Status:</strong> @Model.Status</li>
                 </ul>
             </div>

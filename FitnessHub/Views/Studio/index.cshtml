@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FitnessHub.Models.Studio>
+
+@{
+    ViewBag.Title = "Studios";
+}
+
+<h2>Studios</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Image</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Location)</td>
+            <td><img src="@item.ImageUrl" alt="Studio Image" width="100" /></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudioID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudioID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudioID })
+            </td>
+        </tr>
+    }
+
+</table>

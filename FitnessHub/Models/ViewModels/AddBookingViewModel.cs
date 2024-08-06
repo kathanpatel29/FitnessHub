@@ -7,7 +7,7 @@ namespace FitnessHub.Models.ViewModels
 {
     public class AddBookingViewModel
     {
-        public IEnumerable<ClassDto> Classes { get; set; }
+        public IEnumerable<DanceClassDto> Classes { get; set; }
         public IEnumerable<UserDto> Users { get; set; }
 
         [Display(Name = "Booking Date")]
@@ -30,7 +30,7 @@ namespace FitnessHub.Models.ViewModels
         public AddBookingViewModel()
         {
             // Initialize collections if necessary
-            Classes = new List<ClassDto>();
+            Classes = new List<DanceClassDto>();
             Users = new List<UserDto>();
         }
     }

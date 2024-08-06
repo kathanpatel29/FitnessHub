@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FitnessHub.Models.SwimmingLesson>
+
+@{
+    ViewBag.Title = "Swimming Lessons";
+}
+
+<h2>Swimming Lessons</h2>
+
+<form method="get">
+    <input type="text" name="search" value="@ViewBag.Search" placeholder="Search..." />
+    <input type="submit" value="Search" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Instructor</th>
+            <th>Schedule</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Instructor</td>
+                <td>@item.Schedule</td>
+                <td>@item.Duration</td>
+                <td>@item.Price</td>
+                <td>@item.Status</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.LessonID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.LessonID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Create New", "Create")

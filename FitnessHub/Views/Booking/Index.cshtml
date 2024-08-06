@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FitnessHub.Models.BookingDto>
+
+@{
+    ViewBag.Title = "Bookings";
+}
+
+<h2>Bookings</h2>
+
+<form method="get" action="@Url.Action("Index")">
+    <input type="text" name="search" placeholder="Search bookings" value="@Request.QueryString["search"]" />
+    <button type="submit">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Dance Class</th>
+            <th>Swimming Lesson</th>
+            <th>User</th>
+            <th>Booking Date</th>
+            <th>Amount Paid</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.DanceClassID</td>
+                <td>@booking.SwimmingLessonID</td>
+                <td>@booking.UserID</td>
+                <td>@booking.BookingDate</td>
+                <td>@booking.AmountPaid</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = booking.BookingID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = booking.BookingID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>@Html.ActionLink("Create New Booking", "Create")</p>

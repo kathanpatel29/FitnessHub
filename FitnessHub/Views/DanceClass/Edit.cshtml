@@ -1,4 +1,5 @@
-﻿@model FitnessHub.Models.ClassDto
+﻿@model FitnessHub.Models.DanceClassDto
+
 @{
     ViewBag.Title = "Update Class";
 }
@@ -20,7 +21,7 @@
         }
 
         .container {
-            max-width: 100%; /* Full width container */
+            max-width: 800px; /* Full width container */
         }
 
         h2 {
@@ -78,7 +79,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col">
-                <h2 class="text-muted">Update Class: @Model.ClassName of Studio <strong>@Model.Name</strong></h2>
+                <h2 class="text-muted">Update Class: @Model.Name of Studio <strong>@Model.StudioID</strong></h2>
             </div>
             <div class="col-auto">
                 <a href="/DanceClass/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Classes</a>
@@ -88,15 +89,18 @@
         <form action="/DanceClass/Update/@Model.ClassID" method="POST">
             @Html.AntiForgeryToken()
             <div class="row">
-                <div class="col mb-3">
-                    <label for="ClassName" class="form-label">Class Name:</label>
-                    <input type="text" class="form-control" id="ClassName" name="ClassName" value="@Model.ClassName" required />
+                <div class="col-md-6 mb-3">
+                    <label for="Name" class="form-label">Class Name:</label>
+                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
                 </div>
-                <div class="col mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Duration" class="form-label">Duration (in Hours):</label>
-                    <input type="number" class="form-control" id="Duration" name="Duration" value="@Model.Duration" required />
+                    <input type="number" class="form-control" id="Duration" name="Duration" value="@Model.Duration" required min="1" step="1" />
                 </div>
-                <div class="col mb-3">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
                     <label for="Instructor" class="form-label">Instructor:</label>
                     <select class="form-select" id="Instructor" name="Instructor" required>
                         <option value="KarishmaPatel" @(Model.Instructor == "KarishmaPatel" ? "selected" : "")>Karishma Patel</option>
@@ -104,10 +108,7 @@
                         <option value="AbhiKori" @(Model.Instructor == "AbhiKori" ? "selected" : "")>Abhi Kori</option>
                     </select>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Schedule" class="form-label">Schedule:</label>
                     <select class="form-select" id="Schedule" name="Schedule" required>
                         <option value="2024-07-20T10:00:00" @(Model.Schedule.ToString("yyyy-MM-ddTHH:mm:ss") == "2024-07-20T10:00:00" ? "selected" : "")>20 July 2024, 10:00AM - 3:00PM</option>
@@ -115,11 +116,14 @@
                         <option value="2024-07-25T10:00:00" @(Model.Schedule.ToString("yyyy-MM-ddTHH:mm:ss") == "2024-07-25T10:00:00" ? "selected" : "")>25 July 2024, 10:00AM - 3:00PM</option>
                     </select>
                 </div>
-                <div class="col mb-3">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
                     <label for="Price" class="form-label">Price:</label>
-                    <input type="number" class="form-control" id="Price" name="Price" step="0.01" value="@Model.Price" required />
+                    <input type="number" class="form-control" id="Price" name="Price" step="0.01" value="@Model.Price" required min="0" />
                 </div>
-                <div class="col mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Status" class="form-label">Status:</label>
                     <select class="form-select" id="Status" name="Status" required>
                         <option value="Available" @(Model.Status == "Available" ? "selected" : "")>Available</option>
@@ -129,10 +133,8 @@
                 </div>
             </div>
 
-            <div>
-                <input type="hidden" class="form-control" id="ClassID" name="ClassID" value="@Model.ClassID" />
-                <input type="hidden" class="form-control" id="StudioID" name="StudioID" value="@Model.StudioID" />
-            </div>
+            <input type="hidden" id="ClassID" name="ClassID" value="@Model.ClassID" />
+            <input type="hidden" id="StudioID" name="StudioID" value="@Model.StudioID" />
 
             <button type="submit" class="btn btn-primary">Update Class</button>
         </form>

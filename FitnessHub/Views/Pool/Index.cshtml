@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FitnessHub.Models.Pool>
+
+@{
+    ViewBag.Title = "Pools";
+}
+
+<h2>Pools</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td><img src="@item.ImageUrl" alt="@item.Name" style="max-width: 100px;" /></td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PoolID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PoolID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Create New", "Create")

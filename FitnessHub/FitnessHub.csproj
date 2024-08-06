@@ -46,7 +46,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CloudrailSI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.Api.1.0.6\lib\CloudrailSI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="OpenSSL.PrivateKeyDecoder, Version=1.2.0.0, Culture=neutral, PublicKeyToken=78f5ba1b024431f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenSSL.PrivateKeyDecoder.1.2.0\lib\net45\OpenSSL.PrivateKeyDecoder.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenSSL.X509Certificate2.Provider, Version=1.2.0.0, Culture=neutral, PublicKeyToken=78f5ba1b024431f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenSSL.X509Certificate2.Provider.1.2.0\lib\net45\OpenSSL.X509Certificate2.Provider.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -182,29 +194,36 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BookingDataController.cs" />
+    <Compile Include="Controllers\BookingApiController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\DanceClassApiController.cs" />
     <Compile Include="Controllers\DanceClassController.cs" />
-    <Compile Include="Controllers\DanceClassDataController.cs" />
-    <Compile Include="Controllers\DanceClassUserController.cs" />
-    <Compile Include="Controllers\DanceClassUserDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\StudioBookingController.cs" />
-    <Compile Include="Controllers\StudioDataController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PoolApiController.cs" />
+    <Compile Include="Controllers\PoolController.cs" />
+    <Compile Include="Controllers\StudioApiController.cs" />
+    <Compile Include="Controllers\StudioController.cs" />
+    <Compile Include="Controllers\SwimmingLessonApiController.cs" />
+    <Compile Include="Controllers\SwimmingLessonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408052050177_Studio.cs" />
-    <Compile Include="Migrations\202408052050177_Studio.Designer.cs">
-      <DependentUpon>202408052050177_Studio.cs</DependentUpon>
+    <Compile Include="Migrations\202408062246471_fitnesshub.cs" />
+    <Compile Include="Migrations\202408062246471_fitnesshub.Designer.cs">
+      <DependentUpon>202408062246471_fitnesshub.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\DanceClass.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Pool.cs" />
     <Compile Include="Models\Studio.cs" />
+    <Compile Include="Models\SwimmingLesson.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\AddBookingViewModel.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
@@ -252,10 +271,11 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\FitnessHub.csproj.AssemblyReference.cache" />
     <Content Include="obj\Debug\FitnessHub.csproj.CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\FitnessHub.csproj.GenerateResource.cache" />
-    <Content Include="obj\Debug\FitnessHub.csproj.Up2Date" />
     <Content Include="Properties\serviceDependencies.json" />
     <Content Include="Properties\serviceDependencies.local.json" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\FitnessHub.csproj.GenerateResource.cache" />
+    <Content Include="obj\Debug\FitnessHub.csproj.Up2Date" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -301,22 +321,30 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\DanceClass\Add.cshtml" />
+    <Content Include="Views\DanceClass\Create.cshtml" />
     <Content Include="Views\DanceClass\DeleteClass.cshtml" />
     <Content Include="Views\DanceClass\Details.cshtml" />
     <Content Include="Views\DanceClass\Edit.cshtml" />
     <Content Include="Views\DanceClass\Error.cshtml" />
-    <Content Include="Views\DanceClass\List.cshtml" />
-    <Content Include="Views\DanceClassUser\AddUser.cshtml" />
-    <Content Include="Views\DanceClassUser\DeleteUser.cshtml" />
-    <Content Include="Views\DanceClassUser\EditUser.cshtml" />
-    <Content Include="Views\DanceClassUser\UserList.cshtml" />
-    <Content Include="Views\DanceClassUser\ViewUser.cshtml" />
-    <Content Include="Views\StudioBooking\AddBooking.cshtml" />
-    <Content Include="Views\StudioBooking\BookingList.cshtml" />
-    <Content Include="Views\StudioBooking\DeleteBooking.cshtml" />
-    <Content Include="Views\StudioBooking\EditBooking.cshtml" />
-    <Content Include="Views\StudioBooking\ViewBooking.cshtml" />
+    <Content Include="Views\DanceClass\index.cshtml" />
+    <Content Include="Views\Studio\index.cshtml" />
+    <Content Include="Views\Studio\Create.cshtml" />
+    <Content Include="Views\SwimmingLesson\index.cshtml" />
+    <Content Include="Views\SwimmingLesson\Create.cshtml" />
+    <Content Include="Views\Pool\Index.cshtml" />
+    <Content Include="Views\Pool\Create.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\Create.cshtml" />
+    <Content Include="Views\Studio\Edit.cshtml" />
+    <Content Include="Views\Studio\Delete.cshtml" />
+    <Content Include="Views\Booking\Edit.cshtml" />
+    <Content Include="Views\Booking\Delete.cshtml" />
+    <Content Include="Views\Payment\checkout.cshtml" />
+    <Content Include="Views\Payment\Paymentsuccess.cshtml" />
+    <Content Include="Views\Pool\Edit.cshtml" />
+    <Content Include="Views\Pool\Delete.cshtml" />
+    <Content Include="Views\SwimmingLesson\Edit.cshtml" />
+    <Content Include="Views\SwimmingLesson\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -350,10 +378,10 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202408052050177_Studio.resx">
-      <DependentUpon>202408052050177_Studio.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202408062246471_fitnesshub.resx">
+      <DependentUpon>202408062246471_fitnesshub.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\FitnessHub.Migrations.Studio.resources" />
+    <EmbeddedResource Include="obj\Debug\FitnessHub.Migrations.fitnesshub.resources" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -63,6 +63,25 @@
                 .card-browse .btn:hover {
                     background-color: #0d47a1; /* Darker blue on hover */
                 }
+
+        /* Specific styles for the View Users card */
+        .card-users {
+            border-top: 5px solid #4caf50; /* Green border */
+        }
+
+            .card-users .card-title {
+                color: #4caf50; /* Green font color */
+            }
+
+            .card-users .btn {
+                background-color: #4caf50; /* Green background */
+                color: white; /* White text color */
+                border-color: #4caf50; /* Green border color */
+            }
+
+                .card-users .btn:hover {
+                    background-color: #388e3c; /* Darker green on hover */
+                }
     </style>
 </head>
 <body>
@@ -80,39 +99,45 @@
         <!-- Three Attractive Links/Buttons with Images -->
         <div class="container">
             <div class="row">
+                <!-- Make a Booking -->
                 <div class="col-md-4 mb-4">
                     <div class="card card-booking h-100 border-0 shadow-lg">
                         <img src="~/image/1.jpg" class="card-img-top" alt="Make a Booking" style="height: 200px; object-fit: cover;">
                         <div class="card-body text-center">
                             <h2 class="card-title font-weight-bold" style="color: #ff4081;">Make a Booking</h2>
-                            <p class="card-text">Book your Seat for professional experiance.</p>
+                            <p class="card-text">Book your seat for professional experience in our dance and swimming classes.</p>
                         </div>
                         <div class="card-footer bg-white border-0 text-center">
-                            <a href="/StudioBooking/BookingList/" class="btn btn-primary btn-lg">Booking List</a>
+                            <a href="/Booking/Index/" class="btn btn-primary btn-lg">View Bookings</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- View Users -->
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow-lg" style="border-top: 5px solid #6fbbd3;">
+                    <div class="card card-users h-100 border-0 shadow-lg">
                         <img src="~/image/2.jpg" class="card-img-top" alt="View Users" style="height: 200px; object-fit: cover;">
                         <div class="card-body text-center">
                             <h2 class="card-title font-weight-bold text-success">View Users</h2>
                             <p class="card-text">Explore our registered users and their profiles. Register yourself with us.</p>
                         </div>
                         <div class="card-footer bg-white border-0 text-center">
-                            <a href="/DanceClassUser/UserList/" class="btn btn-success btn-lg">View Users</a>
+                            <a href="/User/UserList/" class="btn btn-success btn-lg">View Users</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Browse Classes -->
                 <div class="col-md-4 mb-4">
                     <div class="card card-browse h-100 border-0 shadow-lg">
                         <img src="~/image/3.jpg" class="card-img-top" alt="Browse Classes" style="height: 200px; object-fit: cover;">
                         <div class="card-body text-center">
                             <h2 class="card-title font-weight-bold">Browse Classes</h2>
-                            <p class="card-text">Discover our professional classes.</p>
+                            <p class="card-text">Discover our professional dance and swimming classes.</p>
                         </div>
                         <div class="card-footer bg-white border-0 text-center">
-                            <a href="/Danceclass/List/" class="btn btn-lg">Browse Classes</a>
+                            <a href="/DanceClass/index/" class="btn btn-lg">Browse Dance Classes</a>
+                            <a href="/SwimmingLesson/index/" class="btn btn-lg mt-2">Browse Swimming Lessons</a>
                         </div>
                     </div>
                 </div>

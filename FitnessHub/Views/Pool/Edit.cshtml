@@ -1,0 +1,26 @@
+﻿@model FitnessHub.Models.Pool
+
+@{
+    ViewBag.Title = "Edit Pool";
+}
+
+<h2>Edit Pool</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Location)
+        @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Location)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}

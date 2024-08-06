@@ -1,0 +1,44 @@
+﻿@model FitnessHub.Models.BookingDto
+
+@{
+    ViewBag.Title = "Create Booking";
+}
+
+<h2>Create Booking</h2>
+
+@using (Html.BeginForm("Create", "Booking", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DanceClassID)
+        @Html.TextBoxFor(model => model.DanceClassID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.DanceClassID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SwimmingLessonID)
+        @Html.TextBoxFor(model => model.SwimmingLessonID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SwimmingLessonID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserID)
+        @Html.TextBoxFor(model => model.UserID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.UserID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BookingDate)
+        @Html.TextBoxFor(model => model.BookingDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BookingDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AmountPaid)
+        @Html.TextBoxFor(model => model.AmountPaid, "{0:C}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AmountPaid)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
