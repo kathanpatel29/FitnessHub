@@ -82,6 +82,44 @@
                 .card-users .btn:hover {
                     background-color: #388e3c; /* Darker green on hover */
                 }
+
+        /* Specific styles for the Browse Studios card */
+        .card-studio {
+            border-top: 5px solid #ff5722; /* Orange border */
+        }
+
+            .card-studio .card-title {
+                color: #ff5722; /* Orange font color */
+            }
+
+            .card-studio .btn {
+                background-color: #ff5722; /* Orange background */
+                color: white; /* White text color */
+                border-color: #ff5722; /* Orange border color */
+            }
+
+                .card-studio .btn:hover {
+                    background-color: #e64a19; /* Darker orange on hover */
+                }
+
+        /* Specific styles for the Browse Pools card */
+        .card-pool {
+            border-top: 5px solid #00bcd4; /* Cyan border */
+        }
+
+            .card-pool .card-title {
+                color: #00bcd4; /* Cyan font color */
+            }
+
+            .card-pool .btn {
+                background-color: #00bcd4; /* Cyan background */
+                color: white; /* White text color */
+                border-color: #00bcd4; /* Cyan border color */
+            }
+
+                .card-pool .btn:hover {
+                    background-color: #0097a7; /* Darker cyan on hover */
+                }
     </style>
 </head>
 <body>
@@ -136,8 +174,36 @@
                             <p class="card-text">Discover our professional dance and swimming classes.</p>
                         </div>
                         <div class="card-footer bg-white border-0 text-center">
-                            <a href="/DanceClass/index/" class="btn btn-lg">Browse Dance Classes</a>
-                            <a href="/SwimmingLesson/index/" class="btn btn-lg mt-2">Browse Swimming Lessons</a>
+                            <a href="/DanceClass/Index/" class="btn btn-lg">Browse Dance Classes</a>
+                            <a href="/SwimmingLesson/Index/" class="btn btn-lg mt-2">Browse Swimming Lessons</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Browse Studios -->
+                <div class="col-md-4 mb-4">
+                    <div class="card card-studio h-100 border-0 shadow-lg">
+                        <img src="~/image/studio.jpg" class="card-img-top" alt="Browse Studios" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h2 class="card-title font-weight-bold">Browse Studios</h2>
+                            <p class="card-text">Explore our various studios where classes are held.</p>
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center">
+                            <a href="/Studio/Index/" class="btn btn-lg">Browse Studios</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Browse Pools -->
+                <div class="col-md-4 mb-4">
+                    <div class="card card-pool h-100 border-0 shadow-lg">
+                        <img src="~/image/pool.jpg" class="card-img-top" alt="Browse Pools" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h2 class="card-title font-weight-bold">Browse Pools</h2>
+                            <p class="card-text">Check out our available swimming pools for lessons.</p>
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center">
+                            <a href="/Pool/Index/" class="btn btn-lg">Browse Pools</a>
                         </div>
                     </div>
                 </div>
@@ -149,3 +215,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+``

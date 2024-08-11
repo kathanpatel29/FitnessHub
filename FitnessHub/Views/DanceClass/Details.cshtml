@@ -1,107 +1,38 @@
 ﻿@model FitnessHub.Models.DanceClassDto
 
 @{
-    ViewBag.Title = "Class Details";
+    ViewBag.Title = "Dance Class Details";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff; /* Light blue background */
-            color: #333; /* Dark gray text */
-            padding-top: 20px; /* Add padding to the top of the body */
-        }
+<h2>Dance Class Details</h2>
 
-        .container {
-            max-width: 800px; /* Limit container width for better readability */
-        }
+<div>
+    <h4>Dance Class</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
 
-        h2 {
-            color: #1e90ff; /* Dark blue font color */
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+        <dt>@Html.DisplayNameFor(model => model.Instructor)</dt>
+        <dd>@Html.DisplayFor(model => model.Instructor)</dd>
 
-        .btn-outline-secondary {
-            color: #1e90ff; /* Dark blue text */
-            border-color: #1e90ff; /* Dark blue border */
-            border-radius: 50px; /* Rounded button */
-            font-weight: bold;
-        }
+        <dt>@Html.DisplayNameFor(model => model.Schedule)</dt>
+        <dd>@Html.DisplayFor(model => model.Schedule)</dd>
 
-            .btn-outline-secondary:hover {
-                background-color: #1e90ff; /* Dark blue background on hover */
-                color: white; /* White text on hover */
-            }
+        <dt>@Html.DisplayNameFor(model => model.Duration)</dt>
+        <dd>@Html.DisplayFor(model => model.Duration)</dd>
 
-        .card {
-            border: none; /* Remove card border */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
-            margin-top: 20px; /* Adjusted margin for spacing */
-        }
+        <dt>@Html.DisplayNameFor(model => model.Price)</dt>
+        <dd>@Html.DisplayFor(model => model.Price)</dd>
 
-        .card-body {
-            background: #ffffff; /* White background */
-            border-radius: 10px; /* Rounded corners */
-            padding: 20px; /* Padding inside card body */
-        }
+        <dt>@Html.DisplayNameFor(model => model.Status)</dt>
+        <dd>@Html.DisplayFor(model => model.Status)</dd>
 
-        .card-title {
-            color: #1e90ff; /* Dark blue font color */
-            font-weight: bold; /* Bold text */
-            margin-bottom: 20px; /* Bottom margin */
-        }
-
-        .list-group-item {
-            border: none; /* Remove list group item border */
-            padding: 15px; /* Padding for list group items */
-            font-size: 1.1rem; /* Larger font size */
-        }
-
-            .list-group-item strong {
-                color: #1e90ff; /* Dark blue color for strong elements */
-                font-weight: bold; /* Bold text */
-            }
-    </style>
-</head>
-<body>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <h2 class="text-muted">Class Details: @Model.Name</h2>
-            </div>
-            <div class="col-auto">
-                <a href="/DanceClass/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Classes</a>
-            </div>
-        </div>
-
-        <div class="card mt-4">
-            <div class="card-body">
-                <h5 class="card-title text-muted">Class Information</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Studio:</strong> @Model.StudioID</li>
-                    <li class="list-group-item"><strong>Class Name:</strong> @Model.Name</li>
-                    <li class="list-group-item"><strong>Instructor:</strong> @Model.Instructor</li>
-                    <li class="list-group-item"><strong>Schedule:</strong> @Model.Schedule.ToString("dddd, dd MMMM yyyy HH:mm")</li>
-                    <li class="list-group-item"><strong>Duration:</strong> @Model.Duration minutes</li>
-                    <li class="list-group-item"><strong>Price:</strong> $@Model.Price /per Duration</li>
-                    <li class="list-group-item"><strong>Status:</strong> @Model.Status</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+        <dt>@Html.DisplayNameFor(model => model.StudioID)</dt>
+        <dd>@Html.DisplayFor(model => model.StudioID)</dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClassID }) |
+    @Html.ActionLink("Back to List", "Index")
+</div>

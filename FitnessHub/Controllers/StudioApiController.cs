@@ -1,49 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using FitnessHub.Models;
 
 namespace FitnessHub.Controllers.Api
 {
-    public class studioApiController : ApiController
+    public class StudioApiController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly string imagesFolder = HttpContext.Current.Server.MapPath("~/Images/Studios/");
 
-        [HttpGet]
-        public IEnumerable<StudioDto> Getstudios()
+        // GET: api/Studio
+        public IHttpActionResult GetStudios()
         {
-            return db.Studios
-                .Select(p => new StudioDto
-                {
-                    StudioID = p.StudioID,
-                    Name = p.Name,
-                    Description = p.Description,
-                    ImageUrl = p.ImageUrl
-                }).ToList();
+            var studios = db.Studios.ToList();
+            return Ok(studios);
         }
 
-        [HttpGet]
-        public IHttpActionResult Getstudio(int id)
+        // GET: api/Studio/5
+        public IHttpActionResult GetStudio(int id)
         {
-            var studio = db.Studios
-                .Select(p => new StudioDto
-                {
-                    StudioID = p.StudioID,
-                    Name = p.Name,
-                    Description = p.Description,
-                    ImageUrl = p.ImageUrl
-                }).FirstOrDefault(p => p.StudioID == id);
-
+            var studio = db.Studios.Find(id);
             if (studio == null)
             {
                 return NotFound();
             }
-
             return Ok(studio);
         }
 
+        // POST: api/Studio
         [HttpPost]
-        public IHttpActionResult Createstudio(StudioDto dto)
+        public IHttpActionResult CreateStudio([FromBody] StudioDto studioDto)
         {
             if (!ModelState.IsValid)
             {
@@ -52,47 +43,70 @@ namespace FitnessHub.Controllers.Api
 
             var studio = new Studio
             {
-                Name = dto.Name,
-                Description = dto.Description,
-                ImageUrl = dto.ImageUrl
+                Name = studioDto.Name,
+                Location = studioDto.Location,
+                Description = studioDto.Description
             };
+
+            if (!string.IsNullOrEmpty(studioDto.ImageUrl))
+            {
+                studio.ImageUrl = studioDto.ImageUrl;
+            }
+            else
+            {
+                studio.ImageUrl = "/Images/Studios/default.png"; // Default image if none provided
+            }
 
             db.Studios.Add(studio);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = studio.StudioID }, dto);
+            return Created(new Uri(Request.RequestUri + "/" + studio.StudioID), studio);
         }
 
+        // PUT: api/Studio/5
         [HttpPut]
-        public IHttpActionResult Updatestudio(int id, StudioDto dto)
+        public IHttpActionResult UpdateStudio(int id, [FromBody] StudioDto studioDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            var studioInDb = db.Studios.Find(id);
+            if (studioInDb == null)
+            {
+                return NotFound();
+            }
+
+            studioInDb.Name = studioDto.Name;
+            studioInDb.Location = studioDto.Location;
+            studioInDb.Description = studioDto.Description;
+
+            if (!string.IsNullOrEmpty(studioDto.ImageUrl))
+            {
+                studioInDb.ImageUrl = studioDto.ImageUrl;
+            }
+
+            db.SaveChanges();
+
+            return Ok();
+        }
+
+        // DELETE: api/Studio/5
+        [HttpDelete]
+        public IHttpActionResult DeleteStudio(int id)
+        {
             var studio = db.Studios.Find(id);
             if (studio == null)
             {
                 return NotFound();
             }
 
-            studio.Name = dto.Name;
-            studio.Description = dto.Description;
-            studio.ImageUrl = dto.ImageUrl;
-
-            db.SaveChanges();
-
-            return Ok(dto);
-        }
-
-        [HttpDelete]
-        public IHttpActionResult Deletestudio(int id)
-        {
-            var studio = db.Studios.Find(id);
-            if (studio == null)
+            // Delete the image file if exists
+            var imagePath = HttpContext.Current.Server.MapPath(studio.ImageUrl);
+            if (System.IO.File.Exists(imagePath))
             {
-                return NotFound();
+                System.IO.File.Delete(imagePath);
             }
 
             db.Studios.Remove(studio);

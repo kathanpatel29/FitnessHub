@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FitnessHub.Models.DanceClass>
+﻿@model IEnumerable<FitnessHub.Models.DanceClassDto>
 
 @{
     ViewBag.Title = "Dance Classes";
@@ -6,40 +6,45 @@
 
 <h2>Dance Classes</h2>
 
-<form method="get">
-    <input type="text" name="search" value="@ViewBag.Search" placeholder="Search..." />
-    <input type="submit" value="Search" />
-</form>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "DanceClass", FormMethod.Get))
+{
+    <p>
+        Search by Name or Instructor: @Html.TextBox("search", ViewBag.Search as string, new { @class = "form-control" })
+        <input type="submit" value="Search" class="btn btn-default" />
+    </p>
+}
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Instructor</th>
-            <th>Schedule</th>
-            <th>Duration</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Instructor</td>
-                <td>@item.Schedule</td>
-                <td>@item.Duration</td>
-                <td>@item.Price</td>
-                <td>@item.Status</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ClassID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ClassID })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Instructor)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Schedule)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Duration)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Price)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Status)</th>
+        <th>@Html.DisplayNameFor(model => model.First().StudioID)</th>
+        <th></th>
+    </tr>
 
-@Html.ActionLink("Create New", "Create")
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Instructor)</td>
+            <td>@Html.DisplayFor(modelItem => item.Schedule)</td>
+            <td>@Html.DisplayFor(modelItem => item.Duration)</td>
+            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+            <td>@Html.DisplayFor(modelItem => item.Status)</td>
+            <td>@Html.DisplayFor(modelItem => item.StudioID)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ClassID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ClassID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ClassID })
+            </td>
+        </tr>
+    }
+</table>

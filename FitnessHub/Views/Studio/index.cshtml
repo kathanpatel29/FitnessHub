@@ -4,32 +4,44 @@
     ViewBag.Title = "Studios";
 }
 
-<h2>Studios</h2>
+<div class="container mt-4">
+    <h1>Studios</h1>
+    <a href="@Url.Action("Create")" class="btn btn-primary mb-3">Create New Studio</a>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-<table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Image</th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.Location)</td>
-            <td><img src="@item.ImageUrl" alt="Studio Image" width="100" /></td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.StudioID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.StudioID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.StudioID })
-            </td>
-        </tr>
-    }
-
-</table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var studio in Model)
+            {
+                <tr>
+                    <td>@studio.Name</td>
+                    <td>@studio.Location</td>
+                    <td>@studio.Description</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(studio.ImageUrl))
+                        {
+                            <img src="@Url.Content(studio.ImageUrl)" alt="Studio Image" style="width: 100px; height: auto;">
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/Images/Studios/default.png")" alt="Default Image" style="width: 100px; height: auto;">
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", new { id = studio.StudioID })" class="btn btn-info btn-sm">Details</a>
+                        <a href="@Url.Action("Edit", new { id = studio.StudioID })" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = studio.StudioID })" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

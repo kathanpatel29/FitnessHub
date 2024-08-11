@@ -1,146 +1,80 @@
 ﻿@model FitnessHub.Models.DanceClassDto
 
 @{
-    ViewBag.Title = "Update Class";
+    ViewBag.Title = "Edit Dance Class";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff; /* Light blue background */
-            color: #333; /* Dark gray text */
-            padding-top: 20px; /* Add padding to the top of the body */
-        }
+<h2>Edit Dance Class</h2>
 
-        .container {
-            max-width: 800px; /* Full width container */
-        }
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-        h2 {
-            color: #1e88e5; /* Dark blue font color */
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+    <div class="form-horizontal">
+        <h4>Dance Class</h4>
+        <hr />
+        @Html.ValidationSummary(true)
 
-        .btn-outline-secondary {
-            color: #1e88e5; /* Dark blue text */
-            border-color: #1e88e5; /* Dark blue border */
-            border-radius: 50px; /* Rounded button */
-            font-weight: bold;
-        }
-
-            .btn-outline-secondary:hover {
-                background-color: #1e88e5; /* Dark blue background on hover */
-                color: white; /* White text on hover */
-            }
-
-        .form-label {
-            font-weight: bold; /* Bold form labels */
-        }
-
-        .form-control {
-            border-color: #1e88e5; /* Dark blue border for form controls */
-        }
-
-            .form-control:focus {
-                border-color: #1e88e5; /* Dark blue focus border for form controls */
-                box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25); /* Focus shadow */
-            }
-
-        .form-select {
-            border-color: #1e88e5; /* Dark blue border for select elements */
-        }
-
-            .form-select:focus {
-                border-color: #1e88e5; /* Dark blue focus border for select elements */
-                box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25); /* Focus shadow */
-            }
-
-        .btn-primary {
-            background-color: #1e88e5; /* Dark blue background */
-            border: none;
-        }
-
-            .btn-primary:hover {
-                background-color: #0d47a1; /* Darker blue on hover */
-            }
-    </style>
-</head>
-<body>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <h2 class="text-muted">Update Class: @Model.Name of Studio <strong>@Model.StudioID</strong></h2>
-            </div>
-            <div class="col-auto">
-                <a href="/DanceClass/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Classes</a>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <form action="/DanceClass/Update/@Model.ClassID" method="POST">
-            @Html.AntiForgeryToken()
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="Name" class="form-label">Class Name:</label>
-                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="Duration" class="form-label">Duration (in Hours):</label>
-                    <input type="number" class="form-control" id="Duration" name="Duration" value="@Model.Duration" required min="1" step="1" />
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Instructor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Instructor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Instructor, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="Instructor" class="form-label">Instructor:</label>
-                    <select class="form-select" id="Instructor" name="Instructor" required>
-                        <option value="KarishmaPatel" @(Model.Instructor == "KarishmaPatel" ? "selected" : "")>Karishma Patel</option>
-                        <option value="VilasMore" @(Model.Instructor == "VilasMore" ? "selected" : "")>Vilas More</option>
-                        <option value="AbhiKori" @(Model.Instructor == "AbhiKori" ? "selected" : "")>Abhi Kori</option>
-                    </select>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="Schedule" class="form-label">Schedule:</label>
-                    <select class="form-select" id="Schedule" name="Schedule" required>
-                        <option value="2024-07-20T10:00:00" @(Model.Schedule.ToString("yyyy-MM-ddTHH:mm:ss") == "2024-07-20T10:00:00" ? "selected" : "")>20 July 2024, 10:00AM - 3:00PM</option>
-                        <option value="2024-07-23T10:00:00" @(Model.Schedule.ToString("yyyy-MM-ddTHH:mm:ss") == "2024-07-23T10:00:00" ? "selected" : "")>23 July 2024, 10:00AM - 3:00PM</option>
-                        <option value="2024-07-25T10:00:00" @(Model.Schedule.ToString("yyyy-MM-ddTHH:mm:ss") == "2024-07-25T10:00:00" ? "selected" : "")>25 July 2024, 10:00AM - 3:00PM</option>
-                    </select>
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Schedule, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Schedule, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Schedule, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="Price" class="form-label">Price:</label>
-                    <input type="number" class="form-control" id="Price" name="Price" step="0.01" value="@Model.Price" required min="0" />
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="Status" class="form-label">Status:</label>
-                    <select class="form-select" id="Status" name="Status" required>
-                        <option value="Available" @(Model.Status == "Available" ? "selected" : "")>Available</option>
-                        <option value="Occupied" @(Model.Status == "Occupied" ? "selected" : "")>Occupied</option>
-                        <option value="Reserved" @(Model.Status == "Reserved" ? "selected" : "")>Reserved</option>
-                    </select>
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <input type="hidden" id="ClassID" name="ClassID" value="@Model.ClassID" />
-            <input type="hidden" id="StudioID" name="StudioID" value="@Model.StudioID" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            <button type="submit" class="btn btn-primary">Update Class</button>
-        </form>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Status, new SelectList(new[] { "Pending", "Confirm", "Cancel" }, Model.Status), "Select Status", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudioID, "Studio", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StudioID", ViewBag.StudioID as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StudioID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+}

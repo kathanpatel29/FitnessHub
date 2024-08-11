@@ -4,31 +4,44 @@
     ViewBag.Title = "Pools";
 }
 
-<h2>Pools</h2>
+<div class="container mt-4">
+    <h1>Pools</h1>
+    <a href="@Url.Action("Create")" class="btn btn-primary mb-3">Create New Pool</a>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td><img src="@item.ImageUrl" alt="@item.Name" style="max-width: 100px;" /></td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PoolID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PoolID })
-                </td>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
-
-@Html.ActionLink("Create New", "Create")
+        </thead>
+        <tbody>
+            @foreach (var pool in Model)
+            {
+                <tr>
+                    <td>@pool.Name</td>
+                    <td>@pool.Location</td>
+                    <td>@pool.Description</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(pool.ImageUrl))
+                        {
+                            <img src="@Url.Content(pool.ImageUrl)" alt="Pool Image" style="width: 100px; height: auto;">
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/Images/Pools/default.png")" alt="Default Image" style="width: 100px; height: auto;">
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", new { id = pool.PoolID })" class="btn btn-info btn-sm">Details</a>
+                        <a href="@Url.Action("Edit", new { id = pool.PoolID })" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = pool.PoolID })" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

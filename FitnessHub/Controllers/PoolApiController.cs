@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using FitnessHub.Models;
 
@@ -8,42 +12,29 @@ namespace FitnessHub.Controllers.Api
     public class PoolApiController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly string imagesFolder = HttpContext.Current.Server.MapPath("~/Images/Pools/");
 
-        [HttpGet]
-        public IEnumerable<PoolDto> GetPools()
+        // GET: api/Pool
+        public IHttpActionResult GetPools()
         {
-            return db.Pools
-                .Select(p => new PoolDto
-                {
-                    PoolID = p.PoolID,
-                    Name = p.Name,
-                    Description = p.Description,
-                    ImageUrl = p.ImageUrl
-                }).ToList();
+            var pools = db.Pools.ToList();
+            return Ok(pools);
         }
 
-        [HttpGet]
+        // GET: api/Pool/5
         public IHttpActionResult GetPool(int id)
         {
-            var pool = db.Pools
-                .Select(p => new PoolDto
-                {
-                    PoolID = p.PoolID,
-                    Name = p.Name,
-                    Description = p.Description,
-                    ImageUrl = p.ImageUrl
-                }).FirstOrDefault(p => p.PoolID == id);
-
+            var pool = db.Pools.Find(id);
             if (pool == null)
             {
                 return NotFound();
             }
-
             return Ok(pool);
         }
 
+        // POST: api/Pool
         [HttpPost]
-        public IHttpActionResult CreatePool(PoolDto dto)
+        public IHttpActionResult CreatePool([FromBody] PoolDto poolDto)
         {
             if (!ModelState.IsValid)
             {
@@ -52,40 +43,56 @@ namespace FitnessHub.Controllers.Api
 
             var pool = new Pool
             {
-                Name = dto.Name,
-                Description = dto.Description,
-                ImageUrl = dto.ImageUrl
+                Name = poolDto.Name,
+                Location = poolDto.Location,
+                Description = poolDto.Description
             };
+
+            if (!string.IsNullOrEmpty(poolDto.ImageUrl))
+            {
+                pool.ImageUrl = poolDto.ImageUrl;
+            }
+            else
+            {
+                pool.ImageUrl = "/Images/Pools/default.png"; // Default image if none provided
+            }
 
             db.Pools.Add(pool);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = pool.PoolID }, dto);
+            return Created(new Uri(Request.RequestUri + "/" + pool.PoolID), pool);
         }
 
+        // PUT: api/Pool/5
         [HttpPut]
-        public IHttpActionResult UpdatePool(int id, PoolDto dto)
+        public IHttpActionResult UpdatePool(int id, [FromBody] PoolDto poolDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var pool = db.Pools.Find(id);
-            if (pool == null)
+            var poolInDb = db.Pools.Find(id);
+            if (poolInDb == null)
             {
                 return NotFound();
             }
 
-            pool.Name = dto.Name;
-            pool.Description = dto.Description;
-            pool.ImageUrl = dto.ImageUrl;
+            poolInDb.Name = poolDto.Name;
+            poolInDb.Location = poolDto.Location;
+            poolInDb.Description = poolDto.Description;
+
+            if (!string.IsNullOrEmpty(poolDto.ImageUrl))
+            {
+                poolInDb.ImageUrl = poolDto.ImageUrl;
+            }
 
             db.SaveChanges();
 
-            return Ok(dto);
+            return Ok();
         }
 
+        // DELETE: api/Pool/5
         [HttpDelete]
         public IHttpActionResult DeletePool(int id)
         {
@@ -93,6 +100,13 @@ namespace FitnessHub.Controllers.Api
             if (pool == null)
             {
                 return NotFound();
+            }
+
+            // Delete the image file if exists
+            var imagePath = HttpContext.Current.Server.MapPath(pool.ImageUrl);
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
             }
 
             db.Pools.Remove(pool);

@@ -10,8 +10,8 @@ namespace FitnessHub.Models
         public int BookingID { get; set; }
 
         [ForeignKey("User")]
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
+        public string UserID { get; set; } // Changed to string for ApplicationUser
+        public virtual ApplicationUser User { get; set; }
 
         [ForeignKey("DanceClass")]
         public int? DanceClassID { get; set; }
@@ -29,7 +29,7 @@ namespace FitnessHub.Models
     public class BookingDto
     {
         public int BookingID { get; set; }
-        public int UserID { get; set; }
+        public string UserID { get; set; } // Changed to string for ApplicationUser
         public int? DanceClassID { get; set; }
         public int? SwimmingLessonID { get; set; }
         public DateTime BookingDate { get; set; }

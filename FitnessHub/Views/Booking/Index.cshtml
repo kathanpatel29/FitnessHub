@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FitnessHub.Models.BookingDto>
+﻿@model IEnumerable<FitnessHub.Models.Booking>
 
 @{
     ViewBag.Title = "Bookings";
@@ -6,38 +6,68 @@
 
 <h2>Bookings</h2>
 
-<form method="get" action="@Url.Action("Index")">
-    <input type="text" name="search" placeholder="Search bookings" value="@Request.QueryString["search"]" />
-    <button type="submit">Search</button>
-</form>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Dance Class</th>
-            <th>Swimming Lesson</th>
-            <th>User</th>
-            <th>Booking Date</th>
-            <th>Amount Paid</th>
-            <th>Actions</th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DanceClass.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SwimmingLesson.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var booking in Model)
+        @foreach (var item in Model)
         {
             <tr>
-                <td>@booking.DanceClassID</td>
-                <td>@booking.SwimmingLessonID</td>
-                <td>@booking.UserID</td>
-                <td>@booking.BookingDate</td>
-                <td>@booking.AmountPaid</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = booking.BookingID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = booking.BookingID })
+                    @Html.DisplayFor(modelItem => item.BookingID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DanceClass.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SwimmingLesson.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountPaid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookingID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BookingID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookingID })
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
-<p>@Html.ActionLink("Create New Booking", "Create")</p>

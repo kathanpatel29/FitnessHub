@@ -1,17 +1,19 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using PayPal.Api;
+using PayPalPayment = PayPal.Api.Payment;
+using FitnessHubPayment = FitnessHub.Models.Payment;
 using FitnessHub.Models;
-using System.Collections.Generic;
-using System.Linq;
 using System;
 
 namespace FitnessHub.Controllers
 {
     public class PaymentController : Controller
     {
-        private const string ClientId = "YOUR_PAYPAL_CLIENT_ID";
-        private const string ClientSecret = "YOUR_PAYPAL_CLIENT_SECRET";
+        private const string ClientId = "AcZZ9fN4YSPxSi7clf0KbpPrKc7NgiUZG0UD3sFRUacNldssOJM6qIuTF7AZcq91nxOPxvJyeDEzrQqs";
+        private const string ClientSecret = "EOYW35Sezalh7y2yeykmJ5CVFl9H2n3572YLsNmx_FRgcLYW9inGwnPTgUH_GSMr5rSmdJ7NykflwvLi";
 
         public ActionResult Checkout()
         {
@@ -38,7 +40,7 @@ namespace FitnessHub.Controllers
                 payer_id = PayerID
             };
 
-            var payment = new PayPal.Api.Payment { id = paymentId };
+            var payment = new PayPalPayment { id = paymentId };
             var executedPayment = payment.Execute(apiContext, paymentExecution);
 
             if (executedPayment.state.ToLower() != "approved")
@@ -62,7 +64,7 @@ namespace FitnessHub.Controllers
             return new APIContext(accessToken);
         }
 
-        private PayPal.Api.Payment CreatePayment(APIContext apiContext, BookingDto bookingDto)
+        private PayPalPayment CreatePayment(APIContext apiContext, BookingDto bookingDto)
         {
             var payer = new Payer { payment_method = "paypal" };
             var redirUrls = new RedirectUrls
@@ -83,7 +85,7 @@ namespace FitnessHub.Controllers
                 amount = amount
             };
 
-            var payment = new PayPal.Api.Payment
+            var payment = new PayPalPayment
             {
                 intent = "sale",
                 payer = payer,

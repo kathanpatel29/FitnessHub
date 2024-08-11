@@ -8,24 +8,24 @@
         public override void Up()
         {
             CreateTable(
-            "dbo.DanceClasses",
-            c => new
-            {
-                ClassID = c.Int(nullable: false, identity: true),
-                StudioID = c.Int(nullable: false),
-                Name = c.String(),
-                Instructor = c.String(),
-                Schedule = c.DateTime(nullable: false),
-                Duration = c.Int(nullable: false),
-                Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                Status = c.String(),
-            })
-            .PrimaryKey(t => t.ClassID)
-            .ForeignKey("dbo.Studios", t => t.StudioID, cascadeDelete: true)
-            .Index(t => t.StudioID);
+                "dbo.DanceClasses",
+                c => new
+                {
+                    ClassID = c.Int(nullable: false, identity: true),
+                    StudioID = c.Int(nullable: false),
+                    Name = c.String(),
+                    Instructor = c.String(),
+                    Schedule = c.DateTime(nullable: false),
+                    Duration = c.Int(nullable: false),
+                    Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    Status = c.String(),
+                })
+                .PrimaryKey(t => t.ClassID)
+                .ForeignKey("dbo.Studios", t => t.StudioID, cascadeDelete: true)
+                .Index(t => t.StudioID);
 
             CreateTable(
-                    "dbo.Studios",
+                "dbo.Studios",
                 c => new
                 {
                     StudioID = c.Int(nullable: false, identity: true),
@@ -34,7 +34,7 @@
                     Description = c.String(),
                     ImageUrl = c.String(),
                 })
-                    .PrimaryKey(t => t.StudioID);
+                .PrimaryKey(t => t.StudioID);
 
             CreateTable(
                 "dbo.SwimmingLessons",
@@ -70,7 +70,7 @@
                 c => new
                 {
                     BookingID = c.Int(nullable: false, identity: true),
-                    UserID = c.Int(nullable: false),
+                    UserID = c.String(nullable: false), // UserID is a string for ApplicationUser
                     DanceClassID = c.Int(),
                     SwimmingLessonID = c.Int(),
                     BookingDate = c.DateTime(nullable: false),
@@ -103,7 +103,7 @@
                 "dbo.Users",
                 c => new
                 {
-                    UserID = c.Int(nullable: false, identity: true),
+                    UserID = c.String(nullable: false), // UserID is a string for ApplicationUser
                     Username = c.String(),
                     Password = c.String(),
                     Email = c.String(),

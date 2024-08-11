@@ -1,34 +1,43 @@
-﻿@model FitnessHub.Models.StudioDto
+﻿@model FitnessHub.Models.Studio
 
 @{
     ViewBag.Title = "Edit Studio";
 }
 
-<h2>Edit Studio</h2>
+<div class="container mt-4">
+    <h1>Edit Studio</h1>
 
-@using (Html.BeginForm("Edit", "Studio", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Edit", "Studio", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-    <input type="hidden" asp-for="StudioID" />
+        @Html.HiddenFor(model => model.StudioID)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Name)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description)
-        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Description)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location)
+            @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ImageUrl, "Image Upload")
-        <input type="file" name="ImageUrl" />
-        @Html.ValidationMessageFor(model => model.ImageUrl)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description)
+            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = 4 })
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-}
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageUrl, "Upload New Image (optional)")
+            <input type="file" name="ImageFile" class="form-control-file" />
+            <input type="hidden" name="ExistingImageUrl" value="@Model.ImageUrl" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="@Url.Action("index")" class="btn btn-secondary">Back to List</a>
+    }
+</div>

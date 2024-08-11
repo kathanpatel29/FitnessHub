@@ -1,0 +1,29 @@
+﻿@model FitnessHub.Models.Studio
+
+@{
+    ViewBag.Title = "Studio Details";
+}
+
+<div class="container mt-4">
+    <h1>Studio Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">@Model.Name</h2>
+            <p><strong>Location:</strong> @Model.Location</p>
+            <p><strong>Description:</strong> @Model.Description</p>
+
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Url.Content(Model.ImageUrl)" alt="Studio Image" style="width: 300px; height: auto;">
+            }
+            else
+            {
+                <img src="@Url.Content("~/Images/Studios/default.png")" alt="Default Image" style="width: 300px; height: auto;">
+            }
+
+            <a href="@Url.Action("Edit", new { id = Model.StudioID })" class="btn btn-warning mt-3">Edit</a>
+            <a href="@Url.Action("index")" class="btn btn-secondary mt-3">Back to List</a>
+        </div>
+    </div>
+</div>

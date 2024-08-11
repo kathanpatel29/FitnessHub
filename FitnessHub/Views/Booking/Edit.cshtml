@@ -1,4 +1,4 @@
-﻿@model FitnessHub.Models.BookingDto
+﻿@model FitnessHub.Models.Booking
 
 @{
     ViewBag.Title = "Edit Booking";
@@ -6,44 +6,63 @@
 
 <h2>Edit Booking</h2>
 
-@using (Html.BeginForm("Edit", "Booking", FormMethod.Post))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <input type="hidden" asp-for="BookingID" />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DanceClassID)
-        @Html.TextBoxFor(model => model.DanceClassID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.DanceClassID)
+    <div class="form-horizontal">
+        <h4>Booking</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.UserID, (SelectList)ViewBag.UserID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DanceClassID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DanceClassID, (SelectList)ViewBag.DanceClassID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DanceClassID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SwimmingLessonID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SwimmingLessonID, (SelectList)ViewBag.SwimmingLessonID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SwimmingLessonID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BookingDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AmountPaid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AmountPaid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmountPaid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">Save</button>
+            </div>
+        </div>
     </div>
+}
 
-   
-        <div class="form-group">
-            @Html.LabelFor(model => model.SwimmingLessonID)
-            @Html.TextBoxFor(model => model.SwimmingLessonID, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.SwimmingLessonID)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserID)
-            @Html.TextBoxFor(model => model.UserID, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.UserID)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BookingDate)
-            @Html.TextBoxFor(model => model.BookingDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.BookingDate)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AmountPaid)
-            @Html.TextBoxFor(model => model.AmountPaid, "{0:C}", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.AmountPaid)
-        </div>
-
-        <button type="submit" class="btn btn-primary">Save</button>
-        }
-
-       
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
