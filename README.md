@@ -33,15 +33,15 @@
    \```
 FitnessHub/  
 │  
-├── App_Start/                # Configuration files for routing, authentication, etc.  
-├── Controllers/              # MVC Controllers handling application logic  
-├── Models/                   # Data models representing entities like Users, Classes, etc.  
-├── Views/                    # Razor views for rendering UI  
-├── Scripts/                  # JavaScript files for client-side functionality  
-├── Content/                  # CSS, images, and other static assets  
-├── bin/                      # Compiled assemblies and dependencies  
-├── FitnessHub.sln            # Visual Studio solution file  
-└── Web.config                # Application configuration file  
+├── App_Start/                  # Configuration files for routing, authentication, etc.  
+├── Controllers/                # MVC Controllers handling application logic  
+├── Models/                     # Data models representing entities like Users, Classes, etc.  
+├── Views/                      # Razor views for rendering UI  
+├── Scripts/                    # JavaScript files for client-side functionality  
+├── Content/                    # CSS, images, and other static assets  
+├── bin/                        # Compiled assemblies and dependencies  
+├── FitnessHub.sln              # Visual Studio solution file  
+└── Web.config                  # Application configuration file  
 \```
 
  ## Features
